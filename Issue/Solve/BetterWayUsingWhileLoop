@@ -1,0 +1,6 @@
+while true:                         #Check true
+  name = input("Enter your name:") 
+  print("Hello, {name}")            #Using format string
+  while true:
+    print("Hello World")
+#Find a way to break out of the while loop try to find a better way to break it.
