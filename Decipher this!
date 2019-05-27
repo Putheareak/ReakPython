@@ -1,0 +1,45 @@
+import re
+def decipher_this(string):
+    
+    #split the string
+    x = list(string.split(" "))
+    empty_li=[]
+    
+    #Take first character of the string and convert it into an ascii value
+    emy_int=[]
+    emy_int=(re.findall('\d+',string))
+    
+    #Take only the character in string
+    emy_str=""
+    li_li=[]
+    for eli in range(len(x)):
+        if len(x[eli]) > 0:
+            emy_str=re.sub('[^a-zA-Z]+', '', x[eli])
+            li_li.append(emy_str)
+        else:
+            emy_str= ""
+            li_li.append(emy_str)
+    emy_str=emy_str.split(" ")
+        
+    #Take away the first character and swap the the 1st and last character
+    new_str = []
+    new_li = []
+    for ele in range(len(li_li)):
+        if len(li_li[ele]) > 1:
+            new_str = li_li[ele][-1:]+li_li[ele][1:-1]+li_li[ele][:1]   # This is to swap between the first and last character
+            new_li.append(new_str)
+        else:
+            new_str = li_li[ele]
+            new_li.append(new_str)
+        
+    #convert the ascii value to character
+    int_li=[]
+    for i in range(len(emy_int)):
+        int_li.append(chr(int(emy_int[i])))
+
+    # concatdinate the two list.
+    final_list=[]
+    for i in range(len(int_li)):
+        final_list.append(int_li[i] + new_li[i])  #adding a between 2 different list
+    x = " ".join(final_list)                #join a list to become a sentence
+    return str(x)
