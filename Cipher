@@ -1,0 +1,29 @@
+def fivechar(x,y):
+    new = 0
+    if (ord(x)>64 and ord(x)<91):
+        x = ord(x) + y
+        if x > 90:
+            new = (x-91) + 65
+            return chr(new)
+        else:
+            return chr(x)
+    elif (ord(x)>96 and ord(x)<123):
+        x = ord(x) + y
+        if x > 122:
+            new = (x-123) + 97
+            return chr(new)
+        else:
+            return chr(x)
+    elif x.isdigit():
+        boo = True
+        while(boo):
+            new = int(x)
+            if new > 6:
+                new = new - 10
+                return str(new+y)
+            elif new == 6:
+                return "0"
+            else:
+                return str(new+y)
+    else:
+        return x
