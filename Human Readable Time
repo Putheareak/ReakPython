@@ -1,0 +1,25 @@
+def solution(time):
+    Sep = ":"
+    S = time
+    H = M = 0
+    while(S >= 60):
+        M += 1
+        S -= 60
+    while(M >= 60):
+        H += 1
+        M -= 60
+    res = str(H),str(M),str(S)
+    if len(res[0]) != 2:
+        H = str(H).zfill(2)
+    if len(res[1]) != 2:
+        M = str(M).zfill(2)
+    if len(res[2]) != 2:
+        S = str(S).zfill(2)
+    res = []
+    res = str(H),str(M),str(S)
+    return Sep.join(res)
+
+print(solution(0))
+print(solution(5))
+print(solution(60))
+print(solution(9920))
