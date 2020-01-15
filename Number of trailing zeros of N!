@@ -1,0 +1,20 @@
+import math
+def solution(number):
+    l = []
+    res = 1
+    count = 0
+    
+    res = math.factorial(number)
+            
+    for i in range(len(str(res))):
+        if i == 0:
+            continue
+        else:
+            if str(res)[len(str(res))-i] == str(0):
+                count = count + 1
+            else:
+                break
+            
+    return count
+
+print(solution(1000))
