@@ -1,0 +1,17 @@
+def solution(number):
+    l1 = set(number)
+    res = []
+    l2 = []
+    final = []
+    i = 0
+    for i in l1:
+        l2.append(i)
+        l2.append(number.count(i))
+        res.append(tuple(l2))
+        l2 = []
+    for i in res:
+        if i[1] == 1:
+            final.append(i[0])
+    return final
+        
+print(solution([9,9,8,8,7,6,5,4,3,2,1,2,3,4,5,6]))
