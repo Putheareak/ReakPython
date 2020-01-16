@@ -1,0 +1,73 @@
+def solution(string):
+    en_vowel = ['a','i','y','e','o','u']
+    en_alpha = ['b','k','x','z','n','h','d','c','w','g','p','v','j','q','t','s','r','l','m','f']
+    res = []
+    final = []
+    done = []
+    start = replace = 0
+    string = string.split(" ")
+    print(string)
+    for i in string:
+        res.append(list(i))
+        
+    for i1 in res:
+        for i2 in i1:
+            
+            #check for upper case
+            if i2.isupper():
+                low = i2.lower()
+                
+                #check whether it a Vowel or Consinent
+                #this is vowel
+                if low == 'a' or low == 'i' or low == 'y' or low == 'e' or low == 'o' or low == 'u':
+                    start = en_vowel.index(low)
+                    start += 3
+                    if start >= 6:
+                        replace = start - 6
+                    else:
+                        replace = start
+                    final.append(en_vowel[replace].upper())
+                elif low not in en_alpha:
+                    final.append(low)
+                else:
+                    start = en_alpha.index(low)
+                    start += 10
+                    if start >= 20:
+                        replace = start - 20
+                    else:
+                        replace = start
+                    final.append(en_alpha[replace].upper())
+                    
+            #check for lower case        
+            else:
+                low = i2.lower()
+                if low == 'a' or low == 'i' or low == 'y' or low == 'e' or low == 'o' or low == 'u':
+                    start = en_vowel.index(low)
+                    start += 3
+                    if start >= 6:
+                        replace = start - 6
+                    else:
+                        replace = start
+                    final.append(en_vowel[replace])
+                elif i2 not in en_alpha:
+                    final.append(i2)
+                else:
+                    start = en_alpha.index(low)
+                    start += 10
+                    if start >= 20:
+                        replace = start - 20
+                    else:
+                        replace = start
+                    final.append(en_alpha[replace])
+                
+            
+        #final output
+        done.append(''.join(final))
+        final = []
+        
+    return " ".join(done)
+
+print(solution('Nsa zyolv pdimt gij xywbar ikad nsa cequ rifh.'))
+print(solution(' Ita dotf ni dyca / nsaw ecc. '))
+print(solution(" "))
+print(solution('Nsa zyolv pdimt gij xywbar ikad nsa 8 cequ rifh!!'))
