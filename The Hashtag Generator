@@ -1,0 +1,14 @@
+l = res = []
+    result = ""
+    l = string.split()
+    for i in l:
+        slice_obj = slice(1,len(i),1)
+        res.append(i[0].upper()+i[slice_obj].lower())
+    for element in res:
+        result += str(element)
+    if len(result) > 140:
+        return 'false'
+    elif len(result)== 0: 
+        return 'false'
+    else:
+        return "#"+result
